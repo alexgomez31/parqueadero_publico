@@ -1,0 +1,42 @@
+/*
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
+ */
+package com.mycompany.parkinglot.domain;
+
+/**
+ *
+ * @author VANESA-ALEXANDER-YONIER
+ */
+import com.mycompany.parkinglot.infra.Utilities;
+import java.time.LocalDateTime;
+import java.time.ZoneId;
+import java.time.temporal.ChronoUnit;
+
+public class MotoParkingCost implements IParkingCost {
+    @Override
+    public long calculateCost(Vehicle vehicle, long input, long output) {
+        // Convertir timestamps a LocalDateTime
+        LocalDateTime startDate = LocalDateTime.ofInstant(java.time.Instant.ofEpochMilli(input), ZoneId.systemDefault());
+        LocalDateTime endDate = LocalDateTime.ofInstant(java.time.Instant.ofEpochMilli(output), ZoneId.systemDefault());
+        
+        // Calcular la duración en minutos
+        long minutes = ChronoUnit.MINUTES.between(startDate, endDate);
+        double hours = minutes / 60.0;
+        
+        // Calcular la tarifa
+        long cost;
+        if (hours <= 1) {
+            cost = 1000; // Tarifa fija para la primera hora
+        } else {
+            double additionalHours = hours - 1;
+            long additionalCost = Math.round(500 * additionalHours); // 500 por hora adicional o fracción
+            cost = 1000 + additionalCost;
+        }
+        
+        // Redondear a la centena más cercana por encima
+        cost = Utilities.roundToNearestHundred(cost);
+        
+        return cost;
+    }
+}

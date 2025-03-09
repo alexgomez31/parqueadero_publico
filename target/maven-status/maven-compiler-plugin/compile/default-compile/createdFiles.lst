@@ -1,0 +1,14 @@
+com\mycompany\parkinglot\access\RepositoryFactory.class
+com\mycompany\parkinglot\domain\IParkingCost.class
+com\mycompany\parkinglot\domain\Vehicle.class
+com\mycompany\parkinglot\domain\MotoParkingCost.class
+com\mycompany\parkinglot\domain\ParkingCostFactory.class
+com\mycompany\parkinglot\domain\TruckParkingCost.class
+com\mycompany\parkinglot\domain\TypeEnum.class
+com\mycompany\parkinglot\domain\CarParkingCost.class
+com\mycompany\parkinglot\domain\service\Service.class
+com\mycompany\parkinglot\access\IVehicleRepository.class
+com\mycompany\parkinglot\infra\VehicleImpl.class
+com\mycompany\parkinglot\presentation\ClientMain.class
+com\mycompany\parkinglot\access\VehicleRepository.class
+com\mycompany\parkinglot\infra\Utilities.class
